@@ -1,0 +1,92 @@
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# bsp, stack or float
+yabai -m config layout bsp
+
+# Override default layout for space 1 only
+yabai -m config --space 1 layout float
+yabai -m config --space 2 layout float
+
+# New window spawns to the left if vertical split, or top if horizontal split
+yabai -m config window_placement first_child
+# New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+
+# padding
+yabai -m config top_padding 8
+yabai -m config bottom_padding 8
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+yabai -m config window_gap 8
+
+yabai -m config auto_balance on
+
+# mouse settings
+yabaii -m config mouse_follows_focus off
+yabaii -m config mouse_modifier fn
+
+# left click + drag
+yabaii -m config mouse_action1 move
+yabaii -m config mouse_action2 resize
+
+yabaii -m config mouse_drop_action swap
+
+# set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
+yabai -m config focus_follows_mouse off
+
+# floating windows are always on top (default: off)
+yabai -m config window_topmost off
+
+# modify window shadows (default: on, options: on, off, float)
+# example: show shadows only for floating windows
+yabai -m config window_shadow off
+
+# window opacity (default: off)
+# example: render all unfocused windows with 90% opacity
+# 窗口透明度设置
+yabai -m config window_opacity off
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.90
+
+# Disable specific apps
+otherApp='^(IINA|Calendar|日历|计算机|Messages|信息|System Settings|系统设置|活动监视器|Monitor|Mail|微信|WeChat)$'
+yabai -m rule --add app="${otherApp}" manage=off
+#yabai -m rule --add app="${otherApp}" manage=off border=off
+#yabai -m rule --add app=Mail space=5
+
+
+# ====== Border settings =======================
+normal_border_color="010101"
+focused_border_color="FFD700"
+preselect_border_color="2d74da"
+
+yabai -m config window_border               on
+yabai -m config window_border_blur          off
+yabai -m config window_border_width         1
+yabai -m config active_window_border_color  "0xE0${focused_border_color}"
+yabai -m config insert_window_border_color  "0xE0${preselect_border_color}"
+yabai -m config normal_window_border_color  "0x00${normal_border_color}"
+
+# When switch space, if the target space is bsp, turn on the global border, 
+# and if the target space is float, turn off the global border.
+#yabai -m signal --add event=space_changed action="type=\$(yabai -m query --spaces --space | jq .type) && [ \$type = '\"bsp\"' ] && yabai -m config window_border on"
+#yabai -m signal --add event=space_changed action="type=\$(yabai -m query --spaces --space | jq .type) && [ \$type = '\"float\"' ] && yabai -m config window_border off"
+
+# space indicator
+#yabai -m signal --add event=mission_control_exit action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=display_added action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=display_removed action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=window_created action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=window_destroyed action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=window_focused action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=window_moved action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=window_resized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=window_minimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+#yabai -m signal --add event=window_deminimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+#
+
+#space bar
+#yabai -m config external_bar all:26:0
+#SPACEBAR_HEIGHT=$(spacebar -m config height)
+#yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
