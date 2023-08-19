@@ -43,6 +43,15 @@ shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
 # make floating window fill right-half of screen
 shift + alt - right   : yabai -m window --grid 1:2:1:0:1:1
 
+# make floating window fill left-top of screen
+shift + alt - y   : yabai -m window --grid 2:2:0:0:1:1
+# make floating window fill left-bottom of screen
+shift + alt - n   : yabai -m window --grid 2:2:0:1:1:1
+# make floating window fill right-top of screen
+shift + alt - o   : yabai -m window --grid 2:2:1:0:1:1
+# make floating window fill right-bottom of screen
+shift + alt - m   : yabai -m window --grid 2:2:1:1:1:1
+
 # Equalize size of windows
 shift + alt - 0 : yabai -m space --balance
  
