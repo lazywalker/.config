@@ -4,9 +4,10 @@ sudo yabai --load-sa
 # bsp, stack or float
 yabai -m config layout bsp
 
-# Override default layout for space 1 only
+# Override default layout for spaces
 yabai -m config --space 1 layout float
 yabai -m config --space 2 layout float
+yabai -m config --space 7 layout float
 
 # New window spawns to the left if vertical split, or top if horizontal split
 yabai -m config window_placement first_child

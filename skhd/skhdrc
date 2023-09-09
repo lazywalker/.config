@@ -104,12 +104,12 @@ shift + alt - s : yabai -m window --resize top:0:20
  
  
 # fast focus desktop
-alt - up : yabai -m space --focus first
-alt - down : yabai -m space --focus last
+ralt - up : yabai -m space --focus first
+ralt - down : yabai -m space --focus last
 alt - x : yabai -m space --focus recent
-alt - left : yabai -m space --focus prev || yabai -m space --focus last
+ralt - left : yabai -m space --focus prev || yabai -m space --focus last
 alt - z : yabai -m space --focus prev || yabai -m space --focus last
-alt - right : yabai -m space --focus next || yabai -m space --focus first
+ralt - right : yabai -m space --focus next || yabai -m space --focus first
 alt - c : yabai -m space --focus next || yabai -m space --focus first
 alt - 1 : yabai -m space --focus 1
 alt - 2 : yabai -m space --focus 2
