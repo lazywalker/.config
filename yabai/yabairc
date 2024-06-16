@@ -2,12 +2,10 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 # bsp, stack or float
-yabai -m config layout bsp
+yabai -m config layout float
 
 # Override default layout for spaces
-yabai -m config --space 1 layout float
-yabai -m config --space 2 layout float
-yabai -m config --space 7 layout float
+yabai -m config --space 3 --space 4 --space 5 layout bsp
 
 # New window spawns to the left if vertical split, or top if horizontal split
 yabai -m config window_placement first_child
@@ -15,11 +13,12 @@ yabai -m config window_placement first_child
 yabai -m config window_placement second_child
 
 # padding
-yabai -m config top_padding 8
-yabai -m config bottom_padding 8
-yabai -m config left_padding 8
-yabai -m config right_padding 8
-yabai -m config window_gap 8
+PADDING=8
+yabai -m config top_padding $PADDING
+yabai -m config bottom_padding $PADDING
+yabai -m config left_padding $PADDING
+yabai -m config right_padding $PADDING
+yabai -m config window_gap 10
 
 yabai -m config auto_balance on
 
@@ -58,16 +57,14 @@ yabai -m rule --add app="${otherApp}" manage=off
 
 
 # ====== Border settings =======================
-normal_border_color="010101"
-focused_border_color="FFD700"
-preselect_border_color="2d74da"
+# normal_border_color="010101"
+# focused_border_color="FFD700"
+# preselect_border_color="2d74da" 
+#
+# https://github.com/FelixKratz/JankyBorders
+# borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 2>/dev/null 1>&2 &
+borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 2>/dev/null 1>&2 &
 
-yabai -m config window_border               on
-yabai -m config window_border_blur          off
-yabai -m config window_border_width         1
-yabai -m config active_window_border_color  "0xE0${focused_border_color}"
-yabai -m config insert_window_border_color  "0xE0${preselect_border_color}"
-yabai -m config normal_window_border_color  "0x00${normal_border_color}"
 
 # When switch space, if the target space is bsp, turn on the global border, 
 # and if the target space is float, turn off the global border.
@@ -89,5 +86,5 @@ yabai -m config normal_window_border_color  "0x00${normal_border_color}"
 
 #space bar
 #yabai -m config external_bar all:26:0
-#SPACEBAR_HEIGHT=$(spacebar -m config height)
-#yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
+# SPACEBAR_HEIGHT=$(spacebar -m config height)
+# yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
