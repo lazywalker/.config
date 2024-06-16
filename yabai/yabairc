@@ -63,7 +63,7 @@ yabai -m rule --add app="${otherApp}" manage=off
 #
 # https://github.com/FelixKratz/JankyBorders
 # borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 2>/dev/null 1>&2 &
-borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 2>/dev/null 1>&2 &
+# borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 2>/dev/null 1>&2 &
 
 
 # When switch space, if the target space is bsp, turn on the global border, 
