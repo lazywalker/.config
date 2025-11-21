@@ -1,0 +1,17 @@
+[font]
+size = 15.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[window]
+decorations = "Full"
+dynamic_padding = true
+opacity = 0.85
+dynamic_title = true
+
+[window.padding]
+x = 10
+# y = 16
+
