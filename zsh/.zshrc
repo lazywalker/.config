@@ -6,10 +6,11 @@ prompt suse
 ### ALIASES ###
 
 #list
+alias ls="eza --icons=always"
 alias l='ls -l --color=auto'
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -alFh'
+alias ll='ls -alh'
 alias l.="ls -A | egrep '^\.'"
 alias listdir="ls -d */ > list"
 
@@ -30,6 +31,8 @@ alias cdo="cd /Volumes/Dev/openwrt && source env.sh"
 
 #export GOPATH=$HOME/Work/go
 #export PATH=$PATH:$GOPATH/bin
+
+#for openwrt compilers
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
@@ -46,6 +49,13 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 #export LDFLAGS="-L/usr/local/opt/ncurses/lib"
 #export CPPFLAGS="-I/usr/local/opt/ncurses/include"
 
+#for brew accelerating
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
+
 #set title of alacritty
 if [[ "${TERM}" != "" && "${TERM}" == "alacritty" ]]
 then
@@ -61,4 +71,13 @@ fi
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
+#history settings
+HISTFILE=~/.zsh_history
+HISTSIZE=20000
+SAVEHIST=20000
+setopt appendhistory
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+#starship prompt line
 eval "$(starship init zsh)"

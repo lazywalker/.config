@@ -168,4 +168,12 @@ cmd + alt - 0 : yabai -m window --space 10 && yabai -m space --focus 10
 
 alt + cmd - t : ~/.config/yabai/toggle_space_type.sh
 
- 
+# Open iterm2.
+#cmd - return : osascript -e 'tell application "iTerm2" to create window with default profile command ""' || open -na iTerm
+cmd - return : alacritty
+cmd + shift - return : osascript -e 'tell application "iTerm2" to create window with default profile command ""' || open -na iTerm
+
+# open Chrome.
+#cmd + shift - return : open -n -a "Google Chrome"
+#cmd + shift - return : open -n -a "Firefox"
+
