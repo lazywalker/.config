@@ -13,6 +13,11 @@ else
   COLORFLAG='-G'
 fi
 
+# source grc.zsh if grc is available
+if command -v grc >/dev/null 2>&1; then
+  source ~/.config/zsh/plugins/grc.zsh
+fi
+
 # Prefer `eza` if available, otherwise fall back to `ls` with detected color flag
 if command -v eza >/dev/null 2>&1; then
   alias ls='eza --icons=auto'
@@ -37,6 +42,9 @@ alias df='df -h'
 
 alias vi='nvim'
 alias vim='nvim'
+
+#git
+alias gst='git status'
 
 alias python=/usr/local/bin/python3
 alias pip=/usr/local/bin/pip3
@@ -97,4 +105,5 @@ eval "$(starship init zsh)"
 
 #plugins
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
