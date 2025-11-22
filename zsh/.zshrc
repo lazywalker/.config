@@ -81,3 +81,7 @@ setopt SHARE_HISTORY
 
 #starship prompt line
 eval "$(starship init zsh)"
+
+#plugins
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
