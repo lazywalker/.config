@@ -43,7 +43,7 @@ alias df='df -h'
 alias vi='nvim'
 alias vim='nvim'
 
-#git
+# git
 alias gst='git status'
 
 alias python=/usr/local/bin/python3
@@ -105,5 +105,4 @@ eval "$(starship init zsh)"
 
 #plugins
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 

@@ -44,7 +44,7 @@ cmds=(
   ldap
   lolcat
   ld
-#   ls
+#   ls   # Disabled: grc colorization of 'ls' often conflicts with existing colorized aliases or built-in support.
   lsattr
   lsblk
   lsmod
