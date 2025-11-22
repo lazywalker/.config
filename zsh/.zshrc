@@ -6,13 +6,26 @@ prompt suse
 ### ALIASES ###
 
 #list
-alias ls="eza --icons=always"
-alias l='ls -l --color=auto'
-# alias ls='ls --color=auto'
-alias la='ls -a'
-alias ll='ls -alh'
-alias l.="ls -A | egrep '^\.'"
-alias listdir="ls -d */ > list"
+# Detect appropriate color flag for `ls` (GNU vs BSD/macOS)
+if ls --color=auto >/dev/null 2>&1; then
+  COLORFLAG='--color=auto'
+else
+  COLORFLAG='-G'
+fi
+
+# Prefer `eza` if available, otherwise fall back to `ls` with detected color flag
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza --icons=auto'
+else
+  alias ls="ls $COLORFLAG"
+fi
+
+alias l="ls -l $COLORFLAG"
+alias la="ls -a $COLORFLAG"
+alias ll="ls -alh $COLORFLAG"
+# safer name for listing dotfiles
+alias l.='ls -A | egrep "^\."'
+alias ldir='ls -d */'
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
@@ -72,7 +85,7 @@ bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
 #history settings
-HISTFILE=~/.zsh_history
+HISTFILE=~/.config/zsh/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
 setopt appendhistory
