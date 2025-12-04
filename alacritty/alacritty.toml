@@ -1,5 +1,5 @@
 [env]
-TERM = "xterm-256color"
+#TERM = "xterm-256color"
 
 [font]
 size = 15.0
@@ -19,3 +19,7 @@ dynamic_title = true
 x = 10
 # y = 16
 
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Command", action = "ToggleFullscreen" }
+]
